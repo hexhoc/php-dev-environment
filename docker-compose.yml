@@ -11,4 +11,7 @@ services:
           - ./config/nginx:/etc/nginx/conf.d
         # logs folder
           - ./data/logs:/var/log/nginx/
-        
+    php:
+        image: php:fpm
+        volumes:
+            - ./sites:/var/www
