@@ -1,6 +1,6 @@
 version: '3'
 services:
-    web:
+    nginx:
         image: nginx:latest
         ports:
             - "80:80"
@@ -11,6 +11,9 @@ services:
           - ./config/nginx:/etc/nginx/conf.d
         # logs folder
           - ./data/logs:/var/log/nginx/
+        depends_on:
+          - php
+          - mysql
     php:
         build:
             context: .
@@ -19,6 +22,9 @@ services:
             - ./sites:/var/www
     mysql:
         image: mariadb:latest
+        restart: unless-stopped
+        command: --default-authentication-plugin=mysql_native_password
+        command: --innodb_use_native_aio=0
         environment:
             MYSQL_ROOT_PASSWORD: 'root'
             MYSQL_USER: 'tutorial'
