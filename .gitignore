@@ -1,2 +1,4 @@
 data/logs/access.log
 data/logs/error.log
+data/mysql/aria_log_control
+data/mysql/*
