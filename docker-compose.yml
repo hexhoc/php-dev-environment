@@ -12,6 +12,8 @@ services:
         # logs folder
           - ./data/logs:/var/log/nginx/
     php:
-        image: php:fpm
+        build:
+            context: .
+            dockerfile: php.dockerfile
         volumes:
             - ./sites:/var/www

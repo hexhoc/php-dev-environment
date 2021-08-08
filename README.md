@@ -19,3 +19,9 @@ Because PHP will need to access your .php files from the /var/www directory, you
 
 The app folder is now accessible on the host machine, and in the nginx and php containers.
 
+We extend out php build, and create php.dockerfile in the same folder as your docker-compose.yml and add the following:
+docker-php-ext-install pdo pdo_mysql 
+pecl install xdebug 
+docker-php-ext-enable xdebug
+
+
