@@ -2,7 +2,7 @@
 
 The build consists of the following components:
 1. NGINX
-2. PHP
+2. PHP (with xdebug and error report)
 3. MySql
 
 Setting Up a Modern PHP Development Environment:
@@ -19,12 +19,8 @@ Because PHP will need to access your .php files from the /var/www directory, you
 
 The app folder is now accessible on the host machine, and in the nginx and php containers.
 
-We extend out php build, and create php.dockerfile in the same folder as your docker-compose.yml and add the following:
-docker-php-ext-install pdo pdo_mysql 
-pecl install xdebug 
-docker-php-ext-enable xdebug
 
-**2. MySql**
+**3. MySql**
 
 This time there’s an environment block, which is used to pass some variables to the container when it’s created. These are used to configure the database with the following options. Set your own values for the following variables:
 
