@@ -12,6 +12,7 @@ The build consists of the following components:
 2. Type in the terminal -> docker-compose up
 
 Setting Up a Modern PHP Development Environment:
+
 ## **1. NGINX**
 Create folders structure for logs, config and sites. and mount volumes in this folders.
 Place file with config for virtual host in "./config/nginx/" folder
@@ -26,7 +27,6 @@ Because PHP will need to access your .php files from the /var/www directory, you
 The app folder is now accessible on the host machine, and in the nginx and php containers.
 
 ## **3. MySql**
-
 This time there’s an environment block, which is used to pass some variables to the container when it’s created. These are used to configure the database with the following options. Set your own values for the following variables:
 
 **MYSQL_ROOT_PASSWORD**: the root password for the database. You can use this to log in as root and manage the database.
