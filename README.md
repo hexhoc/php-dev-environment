@@ -26,6 +26,8 @@ Because PHP will need to access your .php files from the /var/www directory, you
 
 The app folder is now accessible on the host machine, and in the nginx and php containers.
 
+XDEBUG. We can config php.ini (/usr/local/etc/php/php.ini) or we can create separate file xdebug.ini and place it on "/usr/local/etc/php/conf.d/" folder
+
 ## **3. MySql**
 This time there’s an environment block, which is used to pass some variables to the container when it’s created. These are used to configure the database with the following options. Set your own values for the following variables:
 
