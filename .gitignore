@@ -3,3 +3,4 @@ data/logs/error.log
 data/mysql/aria_log_control
 data/mysql/*
 fix.sh
+sites/*

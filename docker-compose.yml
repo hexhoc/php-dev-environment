@@ -1,6 +1,7 @@
 version: '3'
 services:
     nginx:
+        container_name: nginx
         image: nginx:latest
         ports:
             - "80:80"
@@ -14,7 +15,10 @@ services:
         depends_on:
           - php
           - mysql
+        networks:
+          - app-network
     php:
+        container_name: php
         build:
             context: .
             dockerfile: php.dockerfile
@@ -24,7 +28,14 @@ services:
           - ./config/php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
           # Enable config for reporting about all error
           - ./config/php/conf.d/error_reporting.ini:/usr/local/etc/php/conf.d/error_reporting.ini
+        ports:
+          #for laravel. Command for start lavaver is php artisan serve --host 0.0.0.0
+            - 8000:8000    
+        networks:
+          - app-network
+            
     mysql:
+        container_name: mysql
         image: mariadb:latest
         restart: unless-stopped
         command: --default-authentication-plugin=mysql_native_password
@@ -38,3 +49,10 @@ services:
           - ./data/mysql:/var/lib/mysql
         ports:
             - 3306:3306
+        networks:
+          - app-network
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
