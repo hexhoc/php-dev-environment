@@ -61,3 +61,13 @@ The example above creates a database called tutorial, which can be access using 
               },
               "log": true
         }
+
+# How to set up laravel
+1. Attach exec /bin/bash for php container
+2. Open /var/www/sites/ folder
+3. Download lavaravel - composer create-project laravel/laravel example-app
+4. cd ./example-app and use command - php artisan serve --host 0.0.0.0 
+  or set up virtual host to /var/www/sites/laravel/public
+5. Install laravel plugin from setting
+6. Configure database. For host-db we are use inner ip of mysql container (usually like 172.16.0.3)
+7. profit
