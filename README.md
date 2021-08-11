@@ -67,6 +67,7 @@ The example above creates a database called tutorial, which can be access using 
 2. Open /var/www/sites/ folder
 3. Download lavaravel - composer create-project laravel/laravel example-app
 4. cd ./example-app and use command - php artisan serve --host 0.0.0.0 
+  OR you can simple configure virtual host to /var/www/hello-project/public 
 5. Install laravel plugin from setting
 6. Configure database. For host-db we are use inner ip of mysql container (usually like 172.16.0.3)
 7. profit
